@@ -1,0 +1,35 @@
+version: "3.8"
+services:
+  backend:
+    build:
+      dockerfile: Dockerfile
+    container_name: go-livecode
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+    ports:
+      - ${API_PORT}:8888
+    networks:
+      - db-network
+  db:
+    image: postgres:alpine3.17
+    container_name: db-livecode
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    restart: always
+    ports:
+      - ${DB_PORT}:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - db-network
+volumes:
+  db-data:
+networks:
+  db-network:
