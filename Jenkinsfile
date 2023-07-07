@@ -8,7 +8,7 @@ pipeline {
         DOCKER_APP = 'docker'
         DB_HOST = 'book-db'
         DB_USER = 'postgres'
-        DB_NAME = 'postgres'
+        DB_NAME = 'livecode-cicd'
         DB_PASSWORD = 'P@ssw0rd'
         DB_PORT = '5434'
         API_PORT = '8183'

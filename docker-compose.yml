@@ -15,7 +15,7 @@ services:
     ports:
       - ${API_PORT}:8888
     networks:
-      - db-network
+      - book-network
   db:
     image: postgres:alpine3.17
     container_name: db-livecode
