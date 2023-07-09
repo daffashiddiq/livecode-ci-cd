@@ -6,11 +6,11 @@ pipeline {
         IMAGE = 'my-golang-livecode'
         CONTAINER = 'my-golang-livecode-app'
         DOCKER_APP = 'docker'
-        DB_HOST = 'db-livecode'
+        DB_HOST = 'db-livecode-host'
         DB_USER = 'postgres'
-        DB_NAME = 'livecode-cicd'
+        DB_NAME = 'book_management_system'
         DB_PASSWORD = 'P@ssw0rd'
-        DB_PORT = '5434'
+        DB_PORT = '5432'
         API_PORT = '8186'
     }
     stages {
