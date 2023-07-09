@@ -15,7 +15,7 @@ type Book struct {
 	ID    string `json:"id"`
 	Title  string `json:"title"`
 	Author string `json:"author"`
-	year int32  `json:"year"`
+	Year int32  `json:"year"`
 }
 
 
@@ -88,13 +88,16 @@ func DeleteBookHandler(c *gin.Context) {
 
 func InitHandler(c *gin.Context) {
 	var Books = []Book{
-		{ID: "B001", Title: "Book A", Author: "Daffa", year: 2002},
-		{ID: "B002", Title: "Book B", Author: "Daffa", year: 2002},
-		{ID: "B003", Title: "Book C", Author: "Daffa", year: 2002},
+		{ID: "B001", Title: "Book A", Author: "Daffa", Year: 2002},
+		{ID: "B002", Title: "Book B", Author: "Daffa", Year: 2002},
+		{ID: "B003", Title: "Book C", Author: "Daffa", Year: 2002},
 	}
 
 	db, err := DbConn()
-  db.AutoMigrate(&Book{})
+	if err != nil {
+		panic(err.Error())
+	}
+	err = db.AutoMigrate(&Book{})
 	if err != nil {
 		panic(err.Error())
 	}
@@ -112,10 +115,11 @@ func DbConn() (*gorm.DB, error) {
 	user := os.Getenv("DB_USER")
 	password := os.Getenv("DB_PASSWORD")
 	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=Asia/Jakarta", host, user, password, dbName, port)
+	// dsn := "host=localhost user=postgres password=admin dbname=livecode-cicd port=5432 sslmode=disable TimeZone=Asia/Jakarta"
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
-    return nil, fmt.Errorf("failed to connect database")
-  }
+		return nil, fmt.Errorf("failed to connect database")
+	}
 	return db, nil
 }
 

@@ -6,10 +6,10 @@ pipeline {
         IMAGE = 'my-golang-livecode'
         CONTAINER = 'my-golang-livecode-app'
         DOCKER_APP = 'docker'
-        DB_HOST = 'book-db'
+        DB_HOST = 'db-livecode'
         DB_USER = 'postgres'
         DB_NAME = 'livecode-cicd'
-        DB_PASSWORD = 'P@ssw0rd'
+        DB_PASSWORD = 'password'
         DB_PORT = '5434'
         API_PORT = '8183'
     }
