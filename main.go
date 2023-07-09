@@ -115,7 +115,7 @@ func DbConn() (*gorm.DB, error) {
 	user := os.Getenv("DB_USER")
 	password := os.Getenv("DB_PASSWORD")
 	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=Asia/Jakarta", host, user, password, dbName, port)
-	// dsn := "host=localhost user=postgres password=admin dbname=livecode-cicd port=5432 sslmode=disable TimeZone=Asia/Jakarta"
+	// dsn := "host=localhost user=postgres password=admin dbname=livecode-cicd port=5432 sslmode=disable TimeZone=Asia/Jakarta" 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		return nil, fmt.Errorf("failed to connect database")
