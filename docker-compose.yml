@@ -26,7 +26,7 @@ services:
     ports:
       - ${DB_PORT}:5432
     volumes:
-      - book-volume
+      - book-volume:/var/lib/postgresql/data
     networks:
       - book-network
 volumes:
