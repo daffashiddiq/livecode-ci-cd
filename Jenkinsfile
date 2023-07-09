@@ -3,10 +3,10 @@ pipeline {
     environment {
         GIT_URL = 'https://github.com/daffashiddiq/livecode-ci-cd.git'
         BRANCH = 'main'
-        IMAGE = 'my-golang-livecode'
-        CONTAINER = 'my-golang-livecode-app'
+        IMAGE = 'livecode-golang'
+        CONTAINER = 'go-livecode'
         DOCKER_APP = 'docker'
-        DB_HOST = 'db-livecode-host'
+        DB_HOST = 'db-livecode'
         DB_USER = 'postgres'
         DB_NAME = 'book_management_system'
         DB_PASSWORD = 'P@ssw0rd'
